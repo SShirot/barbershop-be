@@ -1,4 +1,4 @@
-const AttributeRepository = require("./../../repositories/atributeRepository");
+const AttributeRepository = require("../../repositories/atributeRepository");
 const AttributeValueRepository = require("./../../repositories/attributeValueRepository");
 
 const AttributeService = {
