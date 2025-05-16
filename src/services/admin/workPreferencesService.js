@@ -1,18 +1,17 @@
-const Repository = require('./../../repositories/WorkPreferencesRepository');
+const Repository = require("./../../repositories/workPreferencesRepository");
 
 const WorkPreferencesService = {
+  getAll: async (params = {}) => {
+    console.log("=========== params: ", params);
+    return await Repository.getAll(params);
+  },
+  findByUserId: async (userID) => {
+    return await Repository.findByUserId(userID);
+  },
 
-    getAll: async (params = {}) => {
-        console.log("=========== params: ", params);        
-        return await Repository.getAll(params);
-    },
-    findByUserId: async (userID) => {
-        return await Repository.findByUserId(userID);
-    },
-
-    createOrUpdate: async (userID, data) => {
-        return await Repository.updateOrCreate(userID, data);
-    },
+  createOrUpdate: async (userID, data) => {
+    return await Repository.updateOrCreate(userID, data);
+  },
 };
 
 module.exports = WorkPreferencesService;

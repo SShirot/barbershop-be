@@ -1,41 +1,41 @@
-const WorkPreferencesService = require('./../../services/admin/WorkPreferencesService');
+const WorkPreferencesService = require("./../../services/admin/workPreferencesService");
 const { successResponse, errorResponse } = require("../../utils/response");
 
 exports.findByUserId = async (req, res) => {
-    try {
-        const userId = req.user.id;
-        const data = await WorkPreferencesService.findByUserId(userId);
-        return successResponse(res, { data: data }, 'Successfully');
-    } catch (err) {
-        console.error(err);
-        return errorResponse(res);
-    }
+  try {
+    const userId = req.user.id;
+    const data = await WorkPreferencesService.findByUserId(userId);
+    return successResponse(res, { data: data }, "Successfully");
+  } catch (err) {
+    console.error(err);
+    return errorResponse(res);
+  }
 };
 
 exports.getAll = async (req, res) => {
-    try {
-        const data = await WorkPreferencesService.getAll(req.query);
-        return successResponse(res, { data: data }, 'Successfully');
-    } catch (err) {
-        console.error(err);
-        return errorResponse(res);
-    }
+  try {
+    const data = await WorkPreferencesService.getAll(req.query);
+    return successResponse(res, { data: data }, "Successfully");
+  } catch (err) {
+    console.error(err);
+    return errorResponse(res);
+  }
 };
-
 
 exports.createOrUpdate = async (req, res) => {
-    try {
-        const userId = req.user.id;
-        const updateData = req.body;
+  try {
+    const userId = req.user.id;
+    const updateData = req.body;
 
-        // Cập nhật menu
-        const data = await WorkPreferencesService.createOrUpdate(userId, updateData);
+    // Cập nhật menu
+    const data = await WorkPreferencesService.createOrUpdate(
+      userId,
+      updateData
+    );
 
-
-        return successResponse(res, { data: data }, 'Successfully');
-    } catch (err) {
-        console.error(err);
-        return errorResponse(res);
-    }
+    return successResponse(res, { data: data }, "Successfully");
+  } catch (err) {
+    console.error(err);
+    return errorResponse(res);
+  }
 };
-
